@@ -28,7 +28,7 @@ public class ArrayPush {
         //4. 주소값 이전
         arr = temp;
         temp = null;
-
+        // 확인 
         System.out.println(Arrays.toString(arr));
 
 
