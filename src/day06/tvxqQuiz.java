@@ -33,7 +33,7 @@ public class tvxqQuiz {
                     break;
                 }
             }
-//탐색
+            //탐색
 
             for (int i = 0; i < tvxq.length-1; i++) {
                 tvxq[i] = tvxq[i+1];

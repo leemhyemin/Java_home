@@ -25,7 +25,6 @@ public class ArrayInsert {
         System.out.println("추가 후: "+ Arrays.toString(temp));
 
         // 3. 끝데이터부터 뒤로 밀기
-
         for (int i = temp.length-1; i > targetIndex; i--) {
             temp[i] = temp[i-1];
         }
@@ -34,6 +33,7 @@ public class ArrayInsert {
 //            temp[3] = temp[2];
 //            temp[2] = temp[1];
 //            temp[1] = temp[0];
+
         // 4. 타겟인덱스에 데이터 추가
         temp[targetIndex] = newNumber;
 

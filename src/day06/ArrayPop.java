@@ -1,16 +1,19 @@
 package day06;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArrayPop {
 
     public static void main(String[] args) {
 
-        //배열의 맨 끝 데이터 삭제
-        int[] arr = {10, 20, 30, 40};
+        Scanner sc = new Scanner(System.in);
 
-        //크기가 기준보다 1개 작은 새로운 배열 생성
-        int[] temp = new int[arr.length - 1];
+        //빈 배열 생성
+        int[] arr = {};
+
+        //복사할 다른 배열 생성
+        int[] temp = new int[arr.length];
 
         //맨 마지막 데이터를 제외한 나머지를 새로운 배열로 복사
         // 새로운 배열 크기의 횟수만큼 돌리기

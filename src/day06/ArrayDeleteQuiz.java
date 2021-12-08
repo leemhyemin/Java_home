@@ -33,6 +33,7 @@ public class ArrayDeleteQuiz {
                 for (int i = index; i < students.length - 1; i++) {
                     students[i] = students[i + 1];
                 }
+
                 String[] temp = new String[students.length - 1];
                 for (int i = 0; i < students.length - 1; i++) {
                     temp[i] = students[i];
