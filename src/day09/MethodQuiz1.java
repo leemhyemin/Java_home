@@ -1,6 +1,7 @@
 package day09;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MethodQuiz1 {
 
@@ -64,9 +65,15 @@ public class MethodQuiz1 {
         System.out.println("수정 후 : " + Arrays.toString(foods));
     }
 
-    static String clear(String foods) {
-        foods.clear();
-
+    static void clear() {
+        foods = new String[]{};
+    }
+    static boolean include(String targetFoods) {
+        for (int i = 0; i < foods.length; i++) {
+            if(Objects.equals(foods[i], targetFoods)) {return true;}
+//            if(foods[i] == targetFoods) {return true;}
+        }
+        return false;
     }
     public static void main(String[] args) {
 
@@ -100,7 +107,7 @@ public class MethodQuiz1 {
 
         clear(); //foods 배열 모든 데이터 삭제
 
-//        boolean flag = include("파스타"); // 파스타 발견시 true 리턴
+        boolean flag = include("파스타"); // 파스타 발견시 true 리턴
 
 
     }
