@@ -2,7 +2,8 @@ package day07;
 
 import java.util.Scanner;
 
-public class ArrayQuiz2 {
+public class
+ArrayQuiz2 {
 
     public static void main(String[] args) {
 
