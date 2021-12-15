@@ -62,6 +62,7 @@ public class newJoin {
         System.out.println("* 1. 선생님 || * 2. 학생 ||");
         int JoinMenu = sc.nextInt();
         if (JoinMenu == 1) {
+            //선생님 회원가입
             System.out.println("☆ 선생님으로 회원 가입을 시작합니다 ☆");
             System.out.println("이름을 입력하세요");
             String teacherName = sc.next();
@@ -98,18 +99,26 @@ public class newJoin {
             System.out.println("₍₍ ◝(・ω・)◟ ⁾⁾ 환영합니다.");
             System.out.println("현재 계정 수 : " + idcnt); // 확인용 계정 수
         } else {
+            //학생 회원가입
             System.out.println("☆ 학생으로 회원 가입을 시작합니다 ☆");
             System.out.println("이름을 입력하세요");
             String studentName = sc.next();
             String[] temp4 = new String[student.length + 1];
-            for (int s = 0; s < student.length; s++) {
-                temp4[s] = student[s];
+            for (int z = 0; z < student.length; z++) {
+                temp4[z] = student[z];
             }
             temp4[temp4.length - 1] = studentName;
+            student = temp4;
             System.out.println("아이디를 입력하세요");
             String studentID2 = sc.next();
             String[] temp5 = new String[studentID.length + 1];
             for (int f = 0; f < studentID.length; f++) {
+                for (int x = 0; x < idcnt; x++) {
+                    if (studentID[x].equals(studentID2)) {
+                        System.out.println("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
+                        return; //다시 회원가입
+                    }
+                }
                 temp5[f] = student[f];
             }
             temp5[temp5.length - 1] = studentID2;
