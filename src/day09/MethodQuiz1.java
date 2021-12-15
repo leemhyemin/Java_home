@@ -139,6 +139,5 @@ public class MethodQuiz1 {
     private static void printArray(String[] arr) {
         System.out.println(Arrays.toString(arr));
     }
-
-
+    // 배열 초기화.
 }
