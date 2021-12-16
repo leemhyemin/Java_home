@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class newJoin {
 
    /* 성적 관리 프로그램
-        로그인
+        로그인 ok
         선생님만 관리자
         입력 및 수정
         개인 학생 - 개인 점수만 볼수있음
@@ -23,129 +23,101 @@ public class newJoin {
     static Scanner sc = new Scanner(System.in);
     static int idcnt = 0;
     // 선생님 회원가입
-    static String[] teacher = {}; // 선생님 이름 저장
     static String[] teacherID = {};
     static String[] teacherPW = {};
+    static String[] teacher = {}; // 선생님 이름 저장
     // 학생 회원가입
     static String[] studentID = {};
     static String[] studentPW = {};
-    static String[] student = {};
-    //실행부
-    public static void main(String[] args) {
+    static String[] student = {}; //학생이름 저장
 
-        Scanner sc = new Scanner(System.in);
-        int idcnt = 0;
-        String[] User = new String[0];
-        int x = 0;
-        System.out.println("=========================================");
-        System.out.println("         # 성적 관리 프로그램 #");
-        System.out.println("=========================================");
-        System.out.println("계정이 없으면 회원가입 먼저 해주세요.");
-        System.out.println("로그인 해주세요.");
-        while (x == 0) {
-            System.out.println("* 1. 회원가입 || * 2. 로그인 || * 3. 로그아웃 || * 4. 종료");
-            int menu = sc.nextInt();
-            if (menu == 1) {
-                UserAdd(); //회원가입 함수
-            } else if (menu == 2) {
-                UserLogin(); //로그인
-            } else if (menu == 3) {
-                UserLogout(); //로그아웃함수
-            } else {
-                System.out.println(" (￣▽￣)ノ 종료합니다. ");
-                break;
+    // 선생님 회원가입
+    static void TeacherAdd() {
+        System.out.println("☆선생님으로 회원 가입을 시작합니다 ☆");
+        System.out.println("아이디를 입력하세요");
+        String teacherID2 = sc.next();
+        String[] temp = new String[teacherID.length + 1];
+        for (int a = 0; a < teacherID.length; a++) {
+            for (int i = 0; i < idcnt; i++) {
+                if (teacherID[i].equals(teacherID2)) {
+                    System.out.println("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
+                    return; // 다시 회원가입.
+                }
             }
+            temp[a] = teacherID[a];
         }
-    }
-    //회원가입 함수
-    public static void UserAdd() {
-        System.out.println("* 1. 선생님 || * 2. 학생 ||");
-        int JoinMenu = sc.nextInt();
-        if (JoinMenu == 1) {
-            //선생님 회원가입
-            System.out.println("☆ 선생님으로 회원 가입을 시작합니다 ☆");
-            System.out.println("이름을 입력하세요");
-            String teacherName = sc.next();
-            String[] temp = new String[teacher.length + 1];
-            for (int i = 0; i < teacher.length; i++) {
-                temp[i] = teacher[i];
-            }
-            temp[temp.length - 1] = teacherName;
-            teacher = temp;
-            System.out.println("아이디를 입력하세요");
-            String teacherID2 = sc.next();
-            String[] temp2 = new String[teacherID.length + 1];
-            for (int d = 0; d < teacherID.length; d++) {
-                for (int i = 0; i < idcnt; i++) {
-                    if (teacherID[i].equals(teacherID2)) {
-                        System.out.println("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
-                        return; // 다시 회원가입.
-                    }
-                }
-                temp2[d] = teacherID[d];
-            }
-            temp2[temp2.length - 1] = teacherID2;
-            teacherID = temp2;
-            System.out.println("비밀번호를 입력하세요");
-            String teacherPW2 = sc.next();
-            String[] temp3 = new String[teacherPW.length + 1];
-            for (int p = 0; p < teacherPW.length; p++) {
-                temp3[p] = teacherPW[p];
-            }
-            temp3[temp3.length - 1] = teacherPW2;
-            teacherPW = temp3;
-            idcnt += 1;
-            System.out.println(teacherName + "선생님 반갑습니다. (*´∀`*)");
-            System.out.println("₍₍ ◝(・ω・)◟ ⁾⁾ 환영합니다.");
-            System.out.println("현재 계정 수 : " + idcnt); // 확인용 계정 수
-        } else {
-            //학생 회원가입
-            System.out.println("☆ 학생으로 회원 가입을 시작합니다 ☆");
-            System.out.println("이름을 입력하세요");
-            String studentName = sc.next();
-            String[] temp4 = new String[student.length + 1];
-            for (int z = 0; z < student.length; z++) {
-                temp4[z] = student[z];
-            }
-            temp4[temp4.length - 1] = studentName;
-            student = temp4;
-            System.out.println("아이디를 입력하세요");
-            String studentID2 = sc.next();
-            String[] temp5 = new String[studentID.length + 1];
-            for (int f = 0; f < studentID.length; f++) {
-                for (int x = 0; x < idcnt; x++) {
-                    if (studentID[x].equals(studentID2)) {
-                        System.out.println("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
-                        return; //다시 회원가입
-                    }
-                }
-                temp5[f] = student[f];
-            }
-            temp5[temp5.length - 1] = studentID2;
-            studentID = temp5;
-            System.out.println("비밀번호를 입력하세요");
-            String studentPW2 = sc.next();
-            String[] temp6 = new String[studentPW.length + 1];
-            for (int s = 0; s < studentPW.length; s++) {
-                temp6[s] = student[s];
-            }
-            temp6[temp6.length - 1] = studentPW2;
-            studentPW = temp6;
+        temp[temp.length - 1] = teacherID2;
+        teacherID = temp;
 
-            idcnt += 1;
-            System.out.println(studentName + "학생 ! 반갑습니다. (*´∀`*)");
-            System.out.println("₍₍ ◝(・ω・)◟ ⁾⁾ 환영합니다.");
-            System.out.println("현재 계정 수 : " + idcnt); // 확인용 계정 수
+        System.out.println("비밀번호를 입력하세요");
+        String teacherPW2 = sc.next();
+        String[] temp3 = new String[teacherPW.length + 1];
+        for (int b = 0; b < teacherPW.length; b++) {
+            temp3[b] = teacherPW[b];
         }
-        System.out.println(Arrays.toString(teacher));
+        temp3[temp3.length - 1] = teacherPW2;
+        teacherPW = temp3;
+        System.out.println("이름을 입력하세요");
+        String teacherName = sc.next();
+        String[] temp2 = new String[teacher.length + 1];
+        for (int i = 0; i < teacher.length; i++) {
+            temp2[i] = teacher[i];
+        }
+        temp2[temp2.length - 1] = teacherName;
+        teacher = temp2;
+        idcnt += 1;
+        System.out.println(teacherName + "선생님 반갑습니다. (*´∀`*)");
+        System.out.println("₍₍ ◝(・ω・)◟ ⁾⁾ 환영합니다.");
+        System.out.println("현재 계정 수 : " + idcnt); // 확인용 계정 수
         System.out.println(Arrays.toString(teacherID));
+        System.out.println(Arrays.toString(teacher));
         System.out.println(Arrays.toString(teacherPW));
-        System.out.println(Arrays.toString(student));
+    }
+    //학생 회원가입 함수
+    static void StudentAdd() {
+        //학생 회원가입
+        System.out.println("☆ 학생 으로 회원 가입을 시작합니다 ☆");
+        System.out.println("아이디를 입력하세요");
+        String studentID2 = sc.next();
+        String[] temp4 = new String[studentID.length + 1];
+        for (int d = 0; d < studentID.length; d++) {
+            for (int e = 0; e < idcnt; e++) {
+                if (studentID[e].equals(studentID2)) {
+                    System.out.println("사용중인 아이디입니다. 다른 아이디를 입력해주세요.");
+                    return; // 다시 회원가입.
+                }
+            }
+            temp4[d] = studentID[d];
+        }
+        temp4[temp4.length - 1] = studentID2;
+        studentID = temp4;
+        System.out.println("비밀번호를 입력하세요");
+        String teacherPW2 = sc.next();
+        String[] temp5 = new String[studentPW.length + 1];
+        for (int f = 0; f < studentPW.length; f++) {
+            temp5[f] = studentPW[f];
+        }
+        temp5[temp5.length - 1] = teacherPW2;
+        studentPW = temp5;
+        idcnt += 1;
+        System.out.println("이름을 입력하세요");
+        String studentName = sc.next();
+        String[] temp6 = new String[student.length + 1];
+        for (int g = 0; g < student.length; g++) {
+            temp6[g] = student[g];
+        }
+        temp6[temp6.length - 1] = studentName;
+        student = temp6;
+        System.out.println(studentName + "학생 반갑습니다. (*´∀`*)");
+        System.out.println("₍₍ ◝(・ω・)◟ ⁾⁾ 환영합니다.");
+        System.out.println("현재 계정 수 : " + idcnt); // 확인용 계정 수
+
+    //학생 배열 확인
         System.out.println(Arrays.toString(studentID));
         System.out.println(Arrays.toString(studentPW));
-    } // ok
-
-    // 로그인
+        System.out.println(Arrays.toString(student));
+    }
+    // 로그인 함수
     public static void UserLogin() {
         System.out.println("[* 아이디 : ]");
         String UserID = sc.next();
@@ -171,8 +143,9 @@ public class newJoin {
             }
         System.out.println("아이디 또는 비밀번호가 올바르지 않습니다.");
         return;
-    }
-
+    } //end 로그인
+    
+    // 로그아웃
     static void UserLogout(){
         System.out.println("[* 아이디: ]");
         String id = sc.next();
@@ -185,5 +158,39 @@ public class newJoin {
                 System.out.println(teacher[log] + "님이 로그아웃 하셨습니다.(｡•́︿•̀｡) ");
             }
         }
-    }
-}
+    } // end 로그아웃 함수
+
+    //실행부
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int idcnt = 0;
+        String[] User = new String[0];
+        int x = 0;
+        System.out.println("=========================================");
+        System.out.println("         # 성적 관리 프로그램 #");
+        System.out.println("=========================================");
+        System.out.println("계정이 없으면 회원가입 먼저 해주세요.");
+        System.out.println("로그인 해주세요.");
+        while (x == 0) {
+            System.out.println("* 1. 회원가입 || * 2. 로그인 || * 3. 로그아웃 || * 4. 종료");
+            int menu = sc.nextInt();
+            if (menu == 1) {
+                System.out.println("* 1. 선생님 || * 2. 학생 ||");
+                int JoinMenu = sc.nextInt();
+                if (JoinMenu == 1) {
+                    TeacherAdd();
+                }else {
+                    StudentAdd();
+                }
+            } else if (menu == 2) {
+                UserLogin(); //로그인
+            } else if (menu == 3) {
+                UserLogout(); //로그아웃함수
+            } else {
+                System.out.println(" (￣▽￣)ノ 종료합니다. ");
+                break;
+            }
+        } // end while
+    } // end main
+} // end class
