@@ -16,7 +16,7 @@ public class MethodParam {
         int rn = r.nextInt(foods.length);
         return foods[rn];
     }
-    //n개의 정수를 전달받아서 총합을 리턴하는 함순
+    //n개의 정수를 전달받아서 총합을 리턴하는 함순 넘버즈 배열
     static int addAll(int ... numbers){
         int total = 0;
         for (int n : numbers) {

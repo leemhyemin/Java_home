@@ -7,11 +7,7 @@ public class Run {
     public static void main(String[] args) {
 
         Lotto lotto1 = new Lotto();
-        lotto1.informatione();
-        lotto1.informatione();
-        lotto1.informatione();
-        lotto1.informatione();
-        lotto1.informatione();
+        lotto1.information();
 
     }
 }

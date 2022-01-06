@@ -1,4 +1,4 @@
-package com.kh.example.practice7.model.vo;
+package com.kh.example.practice7.model;
 
 public class Employee {
 
